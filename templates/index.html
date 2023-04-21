@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css')}}">
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<!--
+    <div class="splash">
+      <h1 class="fade-in">Facial Expression Detection</h1>
+       <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_yEvR1T.json"
+       background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player> -->
+      <!-- <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_qdgvr5bj.json"
+       background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+    </div> -->
+
+    <div class="Navbar">
+      <div class="title" id="title"></div>
+      <h2>Discover Your Facial Expression and Get Suggestions.</h2>
+
+      <script type="text/javascript">
+  var i=0,text
+
+  text = 'Hey! Welcome to Emoticon :")'
+  function typing(){
+    if(i<text.length){
+      document.getElementById("title").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing,180);
+    }
+  }
+  typing();
+
+</script>
+
+    </div>
+
+    <div class="MainComtent">
+
+
+
+      <div class="PhotoDevice">
+<!-- <h1>Deba,anjdksabdibhvbsdibvinsdfjinin</h1> -->
+        <form action="{{url_for('result')}}" method="POST" class="form" enctype="multipart/form-data">
+          <div class="form_text">
+            Choose Image From Your Device
+          </div>
+
+          <div class="container">
+            <i class="fa fa-upload icon"></i>
+            <input class="file" type="file" name="file" value="File">
+          </div>
+
+
+          <!-- <div class="file-upload">
+          <div class="file-select">
+            <div class="file-select-button" id="fileName">Choose File</div>
+            <div class="file-select-name" id="noFile">No file chosen...</div>
+            <input type="file" name="chooseFile" id="chooseFile">
+
+          </div>
+        </div> -->
+<input class="submitBtn1" type="submit" name="btn" value="View Expression">
+        </form>
+
+      </div>
+
+      <div class="cameraArea">
+        <div class="capture">
+          <!-- <div class="cam"> -->
+            <div class="camera" id="camera"></div>
+          <!-- </div> -->
+
+          <input class="cameraOpen" type="button" value="Camera" id="cameraOpen" onclick="openCamera()">
+        </div>
+
+
+
+        <div class="snapShot">
+          <p class="snapPhoto" id="snapShot"></p>
+          <!-- <div  id="results" ></div> -->
+          <input class="SnapBtn" type="button" value="Take a Snap" id="btPic" onclick="takeSnapShot()">
+        </div>
+      </div>
+    </div>
+    <div class="Footer">
+
+      <div class="submitButton">
+        <input class="submitBtn" type="submit" name="btn" value="View Expression">
+      </div>
+
+      <div class="FooterText">
+      <div class="text">
+        @COPYRIGHT ALL RIGHT RESERVED 2021
+      </div>
+      </div>
+    </div>
+
+<!-- <form action="{{url_for('result')}}" method="POST" enctype="multipart/form-data">
+  <input type="file" name="file" value="File">
+  <input type="submit" name="btn" value="View this expression">
+</form> -->
+
+
+
+<!-- <input type="button" value="Camera" id="cameraOpen" onclick="openCamera()">
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap">Take a Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+<input type=button value="Save Snapshot" onClick="saveSnap()"> -->
+
+
+<!-- <input type="button" value="Camera" id="cameraOpen" onclick="openCamera()">
+<div class="cameraPart">
+  <div id="camera"></div>
+</div> -->
+
+
+<!-- FOR THE SNAPSHOT -->
+<!-- <input type="button" value="Take a Snap" id="btPic" onclick="takeSnapShot()">
+<p id="snapShot"></p>
+<div id="results" ></div> -->
+    <script src="{{url_for('static', filename='camera.js')}}"></script>
+  </body>
+</html>
